@@ -4,6 +4,7 @@
 #### Python版本 >= 3.5
 
 #### 使用准备
+    pip install requests
     pip install pycrypto
     pip install itchat
     
