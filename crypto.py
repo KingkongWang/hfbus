@@ -2,8 +2,8 @@ from Crypto.Cipher import DES3
 import base64
 
 encoding = "utf-8"
-secret_key = "changxinganhui2016*04*25"  # 秘钥
-iv = "01234567"   # 初始化向量
+secret_key = "changxinganhui2016*04*25"
+iv = "01234567"
 
 # PKCS#5 PKCS#7
 BS = DES3.block_size
@@ -11,7 +11,7 @@ pad = lambda s: s + (BS - len(s) % BS) * bytes([BS - len(s) % BS])
 unpad = lambda s: s[0:-(s[-1])]
 
 
-# 加密
+
 def encode(plaintext):
     data_bytes = bytes(plaintext, encoding='utf-8')
     des3 = DES3.new(secret_key, mode=DES3.MODE_CBC, IV=iv)
@@ -20,7 +20,7 @@ def encode(plaintext):
     return ciphertext
 
 
-# 解密
+
 def decode(ciphertext):
     ciphertext = base64.b64decode(ciphertext)
     des3 = DES3.new(secret_key, mode=DES3.MODE_CBC, IV=iv)
